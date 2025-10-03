@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
     public Entity entity;
     public PlayerMovement playerMovement;
 
-    private void Awake()
+    private void Start()
     {
         if (TryGetComponent(out PlayerMovement playerMovement))
         {
@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        playerMovement.adjustDrag();
+        playerMovement.speedControl(entity);
     }
 
     private void FixedUpdate()

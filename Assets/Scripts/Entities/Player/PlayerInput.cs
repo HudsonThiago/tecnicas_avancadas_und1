@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 
 /*
- * Classe para definição das ações do player. Devem ser 
+ * Classe para definição das ações do player. Devem ser definidas no arquivo playerActions
  */
 public class PlayerInput : MonoBehaviour
 {
@@ -15,7 +15,7 @@ public class PlayerInput : MonoBehaviour
     public float xRotation;
     public float yRotation;
 
-    private void Awake()
+    private void Start()
     {
         if (TryGetComponent(out Player player))
         {
@@ -58,7 +58,7 @@ public class PlayerInput : MonoBehaviour
             xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
             camera.transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
-            player.playerMovement.orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+            player.transform.rotation = Quaternion.Euler(0, yRotation, 0);
         }
     }
 }
