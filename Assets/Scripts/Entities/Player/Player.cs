@@ -8,6 +8,7 @@ using UnityEngine.UIElements;
 public class Player : MonoBehaviour
 {
     public Entity entity;
+    public PlayerUI playerUI;
     public PlayerMovement playerMovement;
 
     private void Start()
@@ -19,6 +20,10 @@ public class Player : MonoBehaviour
         if (TryGetComponent(out Entity entity))
         {
             this.entity = entity;
+        }
+        if (TryGetComponent(out PlayerUI playerUI))
+        {
+            this.playerUI = playerUI;
         }
     }
 
