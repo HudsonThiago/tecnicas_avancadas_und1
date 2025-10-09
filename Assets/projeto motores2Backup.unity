@@ -1259,6 +1259,12 @@ MonoBehaviour:
   bulletSpawn: {fileID: 648620644}
   backspinDrag: 0
   joules: 1.49
+  shootCooldown: 0
+  shotgunBullets: 0
+  spreadAngle: 0
+  noAmmoLabel: {fileID: 0}
+  Ammo: {fileID: 0}
+  isShootgun: 0
 --- !u!1 &548143806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1798,6 +1804,7 @@ GameObject:
   - component: {fileID: 661299636}
   - component: {fileID: 661299637}
   - component: {fileID: 661299638}
+  - component: {fileID: 661299639}
   m_Layer: 0
   m_Name: Weapon Rifle
   m_TagString: Untagged
@@ -1838,6 +1845,12 @@ MonoBehaviour:
   bulletSpawn: {fileID: 961777451}
   backspinDrag: 0
   joules: 1000
+  shootCooldown: 0
+  shotgunBullets: 0
+  spreadAngle: 0
+  noAmmoLabel: {fileID: 0}
+  Ammo: {fileID: 661299639}
+  isShootgun: 0
 --- !u!114 &661299638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1851,6 +1864,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ammoMax: 30
+  ammoCurrent: 0
+  magazine: 0
+  ammoText: {fileID: 0}
+--- !u!114 &661299639
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 661299635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba78bdcdfb2f44a89aad5a1106182458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ammoMax: 0
   ammoCurrent: 0
   magazine: 0
   ammoText: {fileID: 0}
@@ -2685,6 +2714,12 @@ MonoBehaviour:
   bulletSpawn: {fileID: 0}
   backspinDrag: 0
   joules: 1000
+  shootCooldown: 0
+  shotgunBullets: 0
+  spreadAngle: 0
+  noAmmoLabel: {fileID: 0}
+  Ammo: {fileID: 0}
+  isShootgun: 0
 --- !u!114 &1328626123
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2920,6 +2955,12 @@ MonoBehaviour:
   bulletSpawn: {fileID: 2069367376}
   backspinDrag: 0
   joules: 1000
+  shootCooldown: 0
+  shotgunBullets: 0
+  spreadAngle: 0
+  noAmmoLabel: {fileID: 0}
+  Ammo: {fileID: 0}
+  isShootgun: 0
 --- !u!114 &1435477070
 MonoBehaviour:
   m_ObjectHideFlags: 0
