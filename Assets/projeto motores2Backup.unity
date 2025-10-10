@@ -491,7 +491,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -390}
+  m_AnchoredPosition: {x: 0, y: -240}
   m_SizeDelta: {x: 500, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &142282627
@@ -1154,15 +1154,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6e9e79c1bfd4f2abf16d86565f19a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletSpawn: {fileID: 648620644}
   backspinDrag: 0
-  joules: 1.49
-  shootCooldown: 0
+  joules: 149
+  shootCooldown: 0.3
   shotgunBullets: 0
   spreadAngle: 0
   noAmmoLabel: {fileID: 142282625}
-  Ammo: {fileID: 0}
+  Ammo: {fileID: 464799594}
   isShootgun: 0
 --- !u!114 &464799594
 MonoBehaviour:
@@ -1178,10 +1177,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoMax: 15
   ammoCurrent: 15
-  magazine: 0
-  magazineType: 0
+  magazine: 10
+  magazineType: 1
   ammoText: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletWeight: 0
 --- !u!1 &548143806
 GameObject:
@@ -1446,10 +1445,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6e9e79c1bfd4f2abf16d86565f19a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletSpawn: {fileID: 961777451}
   backspinDrag: 0.005
-  joules: 1000
+  joules: 149
   shootCooldown: 0.1
   shotgunBullets: 0
   spreadAngle: 0
@@ -1980,12 +1978,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba78bdcdfb2f44a89aad5a1106182458, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ammoMax: 0
+  ammoMax: 2
   ammoCurrent: 0
-  magazine: 0
-  magazineType: 0
+  magazine: 10
+  magazineType: 3
   ammoText: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletWeight: 0
 --- !u!114 &1328626125
 MonoBehaviour:
@@ -1999,16 +1997,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6e9e79c1bfd4f2abf16d86565f19a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 0}
-  bulletSpawn: {fileID: 0}
+  bulletSpawn: {fileID: 1508904377}
   backspinDrag: 0
-  joules: 1000
-  shootCooldown: 0
-  shotgunBullets: 0
-  spreadAngle: 0
+  joules: 149
+  shootCooldown: 0.9
+  shotgunBullets: 8
+  spreadAngle: 10
   noAmmoLabel: {fileID: 142282625}
-  Ammo: {fileID: 0}
-  isShootgun: 0
+  Ammo: {fileID: 1328626124}
+  isShootgun: 1
 --- !u!1 &1335929936
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,15 +2221,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d6e9e79c1bfd4f2abf16d86565f19a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletSpawn: {fileID: 2069367376}
   backspinDrag: 0
-  joules: 1000
-  shootCooldown: 0.1
+  joules: 149
+  shootCooldown: 0.4
   shotgunBullets: 0
   spreadAngle: 0
-  noAmmoLabel: {fileID: 0}
-  Ammo: {fileID: 0}
+  noAmmoLabel: {fileID: 142282625}
+  Ammo: {fileID: 1435477070}
   isShootgun: 0
 --- !u!114 &1435477070
 MonoBehaviour:
@@ -2248,10 +2244,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ammoMax: 0
   ammoCurrent: 0
-  magazine: 0
-  magazineType: 0
+  magazine: 10
+  magazineType: 2
   ammoText: {fileID: 0}
-  bulletPrefab: {fileID: 0}
+  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletWeight: 0
 --- !u!1 &1450602161
 GameObject:

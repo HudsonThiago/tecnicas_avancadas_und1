@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float backspinDrag;
     public float joules = 1000;
@@ -62,7 +61,7 @@ public class Gun : MonoBehaviour
         else
             direction = ray.direction.normalized;
 
-        GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(direction));
+        GameObject bulletObj = Instantiate(Ammo.bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(direction));
 
         if (bulletObj.TryGetComponent<Rigidbody>(out var rb))
         {
@@ -101,7 +100,7 @@ public class Gun : MonoBehaviour
                 Quaternion.AngleAxis(pitch, camera.transform.right) *
                 direction;
 
-            GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(dir));
+            GameObject bulletObj = Instantiate(Ammo.bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(dir));
 
             if (bulletObj.TryGetComponent<Rigidbody>(out var rb))
             {
@@ -109,10 +108,10 @@ public class Gun : MonoBehaviour
                 rb.linearVelocity = dir * speed;
             }
 
-            Ammo.ammoCurrent--;
             nextShootTime = Time.time + shootCooldown;
             Destroy(bulletObj, 10f);
         }
+            Ammo.ammoCurrent--;
     }
     
     public void ShowAmmoMessage()
