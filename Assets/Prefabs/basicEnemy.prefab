@@ -338,7 +338,7 @@ GameObject:
   - component: {fileID: 3006609923549368639}
   m_Layer: 0
   m_Name: basicEnemy
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -435,7 +435,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fff61fca18f2e643903bf350b864f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entity: {fileID: 0}
+  entity: {fileID: 3790079091154840942}
   stopDistance: 10
   projectilePrefab: {fileID: 7493249039009138005, guid: 5d8d47620d5fdb2468a1ef823678329d, type: 3}
   shootPoint: {fileID: 6492030103949118173}

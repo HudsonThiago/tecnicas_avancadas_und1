@@ -1,70 +1,148 @@
+using System.Runtime;
+using NUnit.Framework;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class Gun : MonoBehaviour
 {
-    public GameObject bulletPrefab;
     public Transform bulletSpawn;
-
-    [Range(0f, 0.50f)]
     public float backspinDrag;
-    public float joules = 1.49f;
+    public float joules = 1000;
+
+    public float shootCooldown;
+    private float nextShootTime;
+
+    //------------------Shotgun Shoot-------------------
+    public int shotgunBullets;
+    public float spreadAngle;
+
+    public GameObject noAmmoLabel;
+    public Ammo Ammo;
+
+    public bool isShootgun = false;
+
+    private PlayerUI playerUI;
+
+    private void Start()
+    {
+        if(GameObject.FindWithTag("Player").TryGetComponent(out PlayerUI playerUI))
+        {
+            this.playerUI = playerUI;
+            updateBullet();
+        }
+    }
+    void OnEnable()
+    {
+        updateBullet();
+    }
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // 0 = botão esquerdo
+        if (Input.GetMouseButton(0))
         {
-            shoot();
+            if(Time.time >= nextShootTime)
+            {
+                if (Ammo.ammoCurrent > 0)
+                {
+                    if (isShootgun == true)
+                    {
+                        shootShotgun();
+                    }
+                    else
+                    {
+                        shoot();
+                    }
+                }
+                else
+                {
+                    ShowAmmoMessage();
+                }
+            }
         }
     }
 
 
     void shoot()
-{
-    // Ray a partir da crosshair (imagem no centro da tela)
-    Camera camera = Camera.main;
-    Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
-    Ray ray = camera.ScreenPointToRay(center);
+    {
+        // Ray a partir da crosshair (imagem no centro da tela)
+        Camera camera = Camera.main;
+        Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+        Ray ray = camera.ScreenPointToRay(center);
 
-    // Direção do cano até o ponto mirado (ou “reto” se não acertar nada)
-    Vector3 direction;
-    if (Physics.Raycast(ray, out RaycastHit hit, 1000f, ~0, QueryTriggerInteraction.Ignore))
-        direction = (hit.point - bulletSpawn.position).normalized;
-    else
-        direction = ray.direction.normalized;
+        // Direção do cano até o ponto mirado (ou “reto” se não acertar nada)
+        Vector3 direction;
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, ~0, QueryTriggerInteraction.Ignore))
+            direction = (hit.point - bulletSpawn.position).normalized;
+        else
+            direction = ray.direction.normalized;
 
-    GameObject bulletObj = Instantiate(bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(direction));
+        GameObject bulletObj = Instantiate(Ammo.bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(direction));
 
         if (bulletObj.TryGetComponent<Rigidbody>(out var rb))
         {
             float speed = joules > 0f ? Mathf.Sqrt((2f * joules) / rb.mass) : 60f;
             rb.linearVelocity = direction * speed;
-        
+
             float magnusForce = Mathf.Sqrt(speed) * backspinDrag;
             rb.AddForce(Vector3.up * magnusForce, ForceMode.Impulse);
         }
 
-    Destroy(bulletObj, 10f);
-}
+        Ammo.ammoCurrent--;
+        nextShootTime = Time.time + shootCooldown;
+        updateBullet();
+        Destroy(bulletObj, 10f);
+    }
 
-
-    /*public void shoot(InputAction.CallbackContext value)
+    void shootShotgun()
     {
-        if (value.performed)
+        Camera camera = Camera.main;
+        Vector2 center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+        Ray ray = camera.ScreenPointToRay(center);
+
+        Vector3 direction;
+        if (Physics.Raycast(ray, out RaycastHit hit, 1000f, ~0, QueryTriggerInteraction.Ignore))
+            direction = (hit.point - bulletSpawn.position).normalized;
+        else
+            direction = ray.direction.normalized;
+
+        for (int i = 0; i < shotgunBullets; i++)
         {
-            GameObject bb = Instantiate(bullet, bulletSpawn.position, Quaternion.identity, transform);
-            if (bb.TryGetComponent(out Rigidbody rigidbody))
+
+            float yaw = Random.Range(-spreadAngle, spreadAngle);
+            float pitch = Random.Range(-spreadAngle, spreadAngle);
+
+            Vector3 dir =
+                Quaternion.AngleAxis(yaw, camera.transform.up) *
+                Quaternion.AngleAxis(pitch, camera.transform.right) *
+                direction;
+
+            GameObject bulletObj = Instantiate(Ammo.bulletPrefab, bulletSpawn.position, Quaternion.LookRotation(dir));
+
+            if (bulletObj.TryGetComponent<Rigidbody>(out var rb))
             {
-                float speed = Mathf.Sqrt((2f * joules) / rigidbody.mass);
-
-                rigidbody.linearVelocity = Vector3.right * speed;
-
-                float magnusForce = Mathf.Sqrt(speed) * backspinDrag;
-                rigidbody.AddForce(Vector3.up * magnusForce, ForceMode.Impulse);
+                float speed = joules > 0f ? Mathf.Sqrt((2f * joules) / rb.mass) : 60f;
+                rb.linearVelocity = dir * speed;
             }
+
+            nextShootTime = Time.time + shootCooldown;
+            Destroy(bulletObj, 10f);
         }
-    }*/
+        Ammo.ammoCurrent--;
+        updateBullet();
+    }
 
+    public void updateBullet()
+    {
+        playerUI.bullet.text = string.Format("{0}/{1}", Ammo.ammoCurrent.ToString(), Ammo.ammoMax.ToString());
+        playerUI.bulletPack.text = Ammo.magazine.ToString();
+    }
+    
+    public void ShowAmmoMessage()
+    {
+        if (!noAmmoLabel) return;
+        noAmmoLabel.SetActive(true);
+        CancelInvoke(nameof(Hide));
+        Invoke(nameof(Hide), 2f);
+    }
 
+    void Hide() => noAmmoLabel.SetActive(false);
 }
