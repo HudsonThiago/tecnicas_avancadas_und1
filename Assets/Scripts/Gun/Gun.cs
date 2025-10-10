@@ -16,10 +16,24 @@ public class Gun : MonoBehaviour
     public float spreadAngle;
 
     public GameObject noAmmoLabel;
-    [SerializeField] Ammo Ammo;
+    public Ammo Ammo;
 
     public bool isShootgun = false;
 
+    private PlayerUI playerUI;
+
+    private void Start()
+    {
+        if(GameObject.FindWithTag("Player").TryGetComponent(out PlayerUI playerUI))
+        {
+            this.playerUI = playerUI;
+            updateBullet();
+        }
+    }
+    void OnEnable()
+    {
+        updateBullet();
+    }
 
     void Update()
     {
@@ -74,6 +88,7 @@ public class Gun : MonoBehaviour
 
         Ammo.ammoCurrent--;
         nextShootTime = Time.time + shootCooldown;
+        updateBullet();
         Destroy(bulletObj, 10f);
     }
 
@@ -111,7 +126,14 @@ public class Gun : MonoBehaviour
             nextShootTime = Time.time + shootCooldown;
             Destroy(bulletObj, 10f);
         }
-            Ammo.ammoCurrent--;
+        Ammo.ammoCurrent--;
+        updateBullet();
+    }
+
+    public void updateBullet()
+    {
+        playerUI.bullet.text = string.Format("{0}/{1}", Ammo.ammoCurrent.ToString(), Ammo.ammoMax.ToString());
+        playerUI.bulletPack.text = Ammo.magazine.ToString();
     }
     
     public void ShowAmmoMessage()

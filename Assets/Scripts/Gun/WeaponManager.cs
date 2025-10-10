@@ -1,14 +1,9 @@
-using System.Diagnostics;
 using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
     public int selectedWeapon = 0;
     public int selecterWeaponBackup;
-    void Start()
-    {
-        SelectWeapon();
-    }
 
     void Update()
     {

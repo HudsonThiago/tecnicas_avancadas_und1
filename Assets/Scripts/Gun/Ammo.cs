@@ -15,7 +15,7 @@ public class Ammo : MonoBehaviour
     public GameObject bulletPrefab;
 
     [SerializeField] private float bulletWeight;
-    void Start()
+    void Awake()
     {
         if (magazineType == 0)
         {

@@ -17,17 +17,17 @@ public class Entity : MonoBehaviour
     {
         health -= damage;
         if (health < 0) health = 0;
-        playerInfo();
+        healthInfo();
     }
 
     public void getHealth(float heal)
     {
         health += heal;
         if (health > maxHealth) health = maxHealth;
-        playerInfo();
+        healthInfo();
     }
 
-    private void playerInfo()
+    private void healthInfo()
     {
         if(TryGetComponent(out Player player))
         {
@@ -38,6 +38,10 @@ public class Entity : MonoBehaviour
                 healthBar.fillAmount = health / maxHealth;
                 healthLabel.text = string.Format("{0}/{1}", health, maxHealth);
             }
+        }
+        if (gameObject.CompareTag("Enemy"))
+        {
+            if(health <=0 ) Destroy(gameObject);
         }
     }
 }
