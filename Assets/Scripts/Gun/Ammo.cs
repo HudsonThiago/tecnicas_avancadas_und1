@@ -9,10 +9,38 @@ public class Ammo : MonoBehaviour
     public int ammoMax;
     public int ammoCurrent;
     public int magazine;
+    public int magazineType;
     public Text ammoText;
+
+    public GameObject bulletPrefab;
+
+    [SerializeField] private float bulletWeight;
     void Start()
     {
+        if (magazineType == 0)
+        {
+            ammoMax = 60;
+        }
+        else if (magazineType == 1)
+        {
+            ammoMax = 30;
+        }
+        else if (magazineType == 2)
+        {
+            ammoMax = 15;
+        }
+        else
+        {
+            ammoMax = 8;
+        }
+
         ammoCurrent = ammoMax;
+
+        if (bulletPrefab.TryGetComponent(out Rigidbody rb))
+        {
+            bulletWeight = rb.mass;
+        }
+
     }
 
     void Update()

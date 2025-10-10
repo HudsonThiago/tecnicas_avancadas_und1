@@ -1179,7 +1179,10 @@ MonoBehaviour:
   ammoMax: 15
   ammoCurrent: 15
   magazine: 0
+  magazineType: 0
   ammoText: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletWeight: 0
 --- !u!1 &548143806
 GameObject:
   m_ObjectHideFlags: 0
@@ -1445,7 +1448,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
   bulletSpawn: {fileID: 961777451}
-  backspinDrag: 0
+  backspinDrag: 0.005
   joules: 1000
   shootCooldown: 0.1
   shotgunBullets: 0
@@ -1468,7 +1471,10 @@ MonoBehaviour:
   ammoMax: 40
   ammoCurrent: 0
   magazine: 10
+  magazineType: 0
   ammoText: {fileID: 0}
+  bulletPrefab: {fileID: 7493249039009138005, guid: 5aadb922b4517484796bcee42d5b42e4, type: 3}
+  bulletWeight: 0
 --- !u!1 &777605836
 GameObject:
   m_ObjectHideFlags: 0
@@ -1977,7 +1983,10 @@ MonoBehaviour:
   ammoMax: 0
   ammoCurrent: 0
   magazine: 0
+  magazineType: 0
   ammoText: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletWeight: 0
 --- !u!114 &1328626125
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,7 +2249,10 @@ MonoBehaviour:
   ammoMax: 0
   ammoCurrent: 0
   magazine: 0
+  magazineType: 0
   ammoText: {fileID: 0}
+  bulletPrefab: {fileID: 0}
+  bulletWeight: 0
 --- !u!1 &1450602161
 GameObject:
   m_ObjectHideFlags: 0
