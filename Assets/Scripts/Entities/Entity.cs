@@ -1,9 +1,6 @@
-using Assets.scripts;
-using System;
+using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 /*
  * Classe base que define os atributos básicos de uma entidade no jogo.
@@ -15,4 +12,32 @@ public class Entity : MonoBehaviour
     public float moveSpeed;
     public float health;
     public float maxHealth;
+
+    public void takeDamage(float damage)
+    {
+        health -= damage;
+        if (health < 0) health = 0;
+        playerInfo();
+    }
+
+    public void getHealth(float heal)
+    {
+        health += heal;
+        if (health > maxHealth) health = maxHealth;
+        playerInfo();
+    }
+
+    private void playerInfo()
+    {
+        if(TryGetComponent(out Player player))
+        {
+            Image healthBar = player.playerUI.healthBar;
+            TextMeshProUGUI healthLabel = player.playerUI.healthLabel;
+            if (healthBar)
+            {
+                healthBar.fillAmount = health / maxHealth;
+                healthLabel.text = string.Format("{0}/{1}", health, maxHealth);
+            }
+        }
+    }
 }
