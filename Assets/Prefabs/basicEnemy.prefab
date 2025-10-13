@@ -421,8 +421,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 2
-  health: 50
-  maxHealth: 50
+  health: 20
+  maxHealth: 20
 --- !u!114 &3006609923549368639
 MonoBehaviour:
   m_ObjectHideFlags: 0

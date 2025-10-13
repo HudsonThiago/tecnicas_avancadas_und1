@@ -14,8 +14,8 @@ public class Timer : MonoBehaviour
     [Header("Eventos")]
     public UnityEvent onTimerEnd;
 
-    private int minutes;
-    private int seconds;
+    public int minutes;
+    public int seconds;
     private float elapsedTime;
     private bool isRunning = true;
 

@@ -5,15 +5,15 @@ using System.Collections;
 public class Enemy : MonoBehaviour
 {
     public Entity entity;
-    public float stopDistance = 1.5f;      // Dist�ncia m�nima para parar
-    public GameObject projectilePrefab;    // Prefab do proj�til
+    public float stopDistance = 1.5f;      // Distância mínima para parar
+    public GameObject projectilePrefab;    // Prefab do projétil
     public Transform shootPoint;           // Ponto de onde o tiro sai
-    public float projectileSpeed = 10f;    // Velocidade do proj�til
+    public float projectileSpeed = 10f;    // Velocidade do projétil
     public float projectileDamage = 10f;   // Dano causado ao player
 
     private Transform player;
     private Rigidbody rb;
-    private bool isChanneling = false;     // Se est� canalizando o tiro
+    private bool isChanneling = false;     // Se está canalizando o tiro
     private bool canShoot = true;          // Controle do tempo de recarga
 
     void Start()
@@ -21,12 +21,10 @@ public class Enemy : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         rb.freezeRotation = true;
 
-        // Encontra o jogador pela tag
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
             player = playerObj.transform;
 
-        // Refer�ncia ao componente Entity (caso exista)
         if (TryGetComponent(out Entity entity))
             this.entity = entity;
     }
@@ -78,13 +76,10 @@ public class Enemy : MonoBehaviour
         isChanneling = true;
         canShoot = false;
 
-        // Canaliza o tiro por 1s
         yield return new WaitForSeconds(1f);
 
-        // Atira o proj�til
         Shoot();
 
-        // Aguarda 2s antes de poder atirar novamente
         yield return new WaitForSeconds(2f);
 
         isChanneling = false;
@@ -95,7 +90,6 @@ public class Enemy : MonoBehaviour
     {
         if (projectilePrefab == null || player == null)
         {
-            Debug.LogWarning("Enemy: Sem proj�til ou player n�o encontrado!");
             return;
         }
 
