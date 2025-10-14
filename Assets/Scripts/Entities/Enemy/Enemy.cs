@@ -106,7 +106,7 @@ public class Enemy : MonoBehaviour
 
         proj.transform.rotation = Quaternion.LookRotation(dir);
 
-        // Envia o dano para o proj�til
+        // Envia o dano para o projétil
         if (proj.TryGetComponent(out EnemyProjectile projectile))
         {
             projectile.damage = projectileDamage;
