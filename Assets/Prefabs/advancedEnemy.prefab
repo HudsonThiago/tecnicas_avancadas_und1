@@ -356,8 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 4
-  health: 100
-  maxHealth: 100
+  health: 30
+  maxHealth: 30
 --- !u!114 &8985247512168754316
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -375,7 +375,7 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7493249039009138005, guid: 5d8d47620d5fdb2468a1ef823678329d, type: 3}
   shootPoint: {fileID: 6170890727389827642}
   projectileSpeed: 50
-  projectileDamage: 10
+  projectileDamage: 6
 --- !u!1 &4303820304208624735
 GameObject:
   m_ObjectHideFlags: 0

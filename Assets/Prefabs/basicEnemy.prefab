@@ -440,4 +440,4 @@ MonoBehaviour:
   projectilePrefab: {fileID: 7493249039009138005, guid: 5d8d47620d5fdb2468a1ef823678329d, type: 3}
   shootPoint: {fileID: 6492030103949118173}
   projectileSpeed: 50
-  projectileDamage: 10
+  projectileDamage: 4

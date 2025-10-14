@@ -5,14 +5,15 @@ public class EnemyProjectile : MonoBehaviour
 {
     public float damage = 10f;
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collider)
     {
-        if (collision.collider.transform.parent.CompareTag("Player"))
+        if (collider.transform.parent.CompareTag("Player"))
         {
-            if (collision.collider.transform.parent.TryGetComponent(out Entity entity))
+            if (collider.transform.parent.TryGetComponent(out Entity entity))
             {
                 entity.takeDamage(damage);
             }
+            Destroy(gameObject);
         }
     }
 }

@@ -132,8 +132,11 @@ public class Gun : MonoBehaviour
 
     public void updateBullet()
     {
-        playerUI.bullet.text = string.Format("{0}/{1}", Ammo.ammoCurrent.ToString(), Ammo.ammoMax.ToString());
-        playerUI.bulletPack.text = Ammo.magazine.ToString();
+        if (Ammo && playerUI)
+        {
+            playerUI.bullet.text = string.Format("{0}/{1}", Ammo.ammoCurrent.ToString(), Ammo.ammoMax.ToString());
+            playerUI.bulletPack.text = Ammo.magazine.ToString();
+        }
     }
     
     public void ShowAmmoMessage()
