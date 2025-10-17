@@ -39,7 +39,7 @@ public class Gun : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
-            if(Time.time >= nextShootTime)
+            if (Time.time >= nextShootTime)
             {
                 if (Ammo.ammoCurrent > 0)
                 {
@@ -58,6 +58,8 @@ public class Gun : MonoBehaviour
                 }
             }
         }
+
+        Time.timeScale = 1f;
     }
 
 
