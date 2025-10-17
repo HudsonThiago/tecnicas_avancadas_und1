@@ -3,9 +3,9 @@ using UnityEngine;
 using UnityEngine.UI;
 
 /*
- * Classe base que define os atributos básicos de uma entidade no jogo.
+ * Classe base que define os atributos bï¿½sicos de uma entidade no jogo.
  * Pode ser usada como base para jogadores, inimigos, NPCs ou qualquer objeto
- * que precise de características comuns, como movimentação e vida.
+ * que precise de caracterï¿½sticas comuns, como movimentaï¿½ï¿½o e vida.
  */
 public class Entity : MonoBehaviour
 {
@@ -38,10 +38,14 @@ public class Entity : MonoBehaviour
                 healthBar.fillAmount = health / maxHealth;
                 healthLabel.text = string.Format("{0}/{1}", health, maxHealth);
             }
+
         }
         if (gameObject.CompareTag("Enemy"))
         {
-            if(health <=0 ) Destroy(gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

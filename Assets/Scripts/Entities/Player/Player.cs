@@ -10,6 +10,7 @@ public class Player : MonoBehaviour
     public Entity entity;
     public PlayerUI playerUI;
     public PlayerMovement playerMovement;
+    public int playerPoint = 0;
 
     private void Start()
     {
@@ -35,6 +36,11 @@ public class Player : MonoBehaviour
     private void FixedUpdate()
     {
         playerMovement.WalkAction(entity);
+    }
+
+    public void setPoint()
+    {
+        playerUI.playerPoint.text = playerPoint.ToString(); 
     }
 
 }

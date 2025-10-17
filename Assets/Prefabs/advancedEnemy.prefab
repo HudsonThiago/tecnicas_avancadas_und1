@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 4803321545240536263}
   - component: {fileID: 7939527997521200197}
   - component: {fileID: 8985247512168754316}
+  - component: {fileID: 8209720995088510641}
   m_Layer: 0
   m_Name: advancedEnemy
   m_TagString: Enemy
@@ -376,6 +377,19 @@ MonoBehaviour:
   shootPoint: {fileID: 6170890727389827642}
   projectileSpeed: 50
   projectileDamage: 6
+--- !u!114 &8209720995088510641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1800099478523933936}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d035de5eb944020a56f81259c7adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 100
 --- !u!1 &4303820304208624735
 GameObject:
   m_ObjectHideFlags: 0

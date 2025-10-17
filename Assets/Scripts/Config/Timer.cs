@@ -7,7 +7,7 @@ public class Timer : MonoBehaviour
     [Header("UI")]
     public TextMeshProUGUI timerText;
 
-    [Header("Configuração")]
+    [Header("Configuraï¿½ï¿½o")]
     public int startMinutes = 5;
     public int startSeconds = 0;
 
@@ -17,7 +17,7 @@ public class Timer : MonoBehaviour
     public int minutes;
     public int seconds;
     private float elapsedTime;
-    private bool isRunning = true;
+    public bool isRunning = true;
 
     void Start()
     {

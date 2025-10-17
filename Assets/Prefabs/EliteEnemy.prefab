@@ -305,6 +305,7 @@ GameObject:
   - component: {fileID: 64914185853135300}
   - component: {fileID: 7382553192832198885}
   - component: {fileID: 475736690797250593}
+  - component: {fileID: -8879228021005889936}
   m_Layer: 0
   m_Name: EliteEnemy
   m_TagString: Enemy
@@ -410,6 +411,19 @@ MonoBehaviour:
   shootPoint: {fileID: 995625507609176518}
   projectileSpeed: 50
   projectileDamage: 10
+--- !u!114 &-8879228021005889936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8698854306183607987}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d035de5eb944020a56f81259c7adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 100
 --- !u!1 &8780870531070913766
 GameObject:
   m_ObjectHideFlags: 0

@@ -58,8 +58,6 @@ public class Gun : MonoBehaviour
                 }
             }
         }
-
-        Time.timeScale = 1f;
     }
 
 

@@ -13,16 +13,20 @@ public class PlayerUI : MonoBehaviour
     public TextMeshProUGUI healthLabel;
     public Image healthBar;
 
-    public Entity entity;
+    [Header("Point UI")]
+    public TextMeshProUGUI playerPoint;
 
+    [Header("Others")]
+    public Entity entity;
     public MenuManager menuManager;
+    public Timer timer;
+
 
     void Update()
     {
-        if(entity.health <= 0)
+        if (entity.health <= 0 || !timer.isRunning)
         {
             menuManager.OpenGameOverScreen();
-            Debug.Log("Mrreu");
         }
     }
 }

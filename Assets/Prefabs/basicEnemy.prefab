@@ -336,6 +336,7 @@ GameObject:
   - component: {fileID: 7052736191393505084}
   - component: {fileID: 3790079091154840942}
   - component: {fileID: 3006609923549368639}
+  - component: {fileID: 5495266724858455209}
   m_Layer: 0
   m_Name: basicEnemy
   m_TagString: Enemy
@@ -441,3 +442,16 @@ MonoBehaviour:
   shootPoint: {fileID: 6492030103949118173}
   projectileSpeed: 50
   projectileDamage: 4
+--- !u!114 &5495266724858455209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7326632120542474114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2d035de5eb944020a56f81259c7adb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  points: 100
