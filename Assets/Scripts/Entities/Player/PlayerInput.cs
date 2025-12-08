@@ -4,12 +4,13 @@ using UnityEngine.InputSystem;
 
 
 /*
- * Classe para definição das ações do player. Devem ser definidas no arquivo playerActions
+ * Classe para definiï¿½ï¿½o das aï¿½ï¿½es do player. Devem ser definidas no arquivo playerActions
  */
 public class PlayerInput : MonoBehaviour
 {
     public GameObject camera;
     public Player player;
+    public bool allowLook = true;
     public float cursorSensitivity = 0.2f;
 
     public float xRotation;
@@ -47,6 +48,10 @@ public class PlayerInput : MonoBehaviour
 
     public void look(InputAction.CallbackContext input)
     {
+        if(allowLook != true)
+        {
+            return;
+        }
         if (input.performed)
         {
             Vector2 lookInput = input.ReadValue<Vector2>();

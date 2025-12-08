@@ -38,10 +38,14 @@ public class Entity : MonoBehaviour
                 healthBar.fillAmount = health / maxHealth;
                 healthLabel.text = string.Format("{0}/{1}", health, maxHealth);
             }
+
         }
         if (gameObject.CompareTag("Enemy"))
         {
-            if(health <=0 ) Destroy(gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

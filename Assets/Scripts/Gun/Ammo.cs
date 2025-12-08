@@ -13,6 +13,7 @@ public class Ammo : MonoBehaviour
     public Text ammoText;
 
     public GameObject bulletPrefab;
+    public Gun gun;
 
     [SerializeField] private float bulletWeight;
     void Awake()
@@ -48,6 +49,7 @@ public class Ammo : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.R))
         {
             Reload();
+            gun.updateBullet();
         }
 
         //ammoText.text = ammoCurrent.ToString() + " / " + magazine.ToString();
