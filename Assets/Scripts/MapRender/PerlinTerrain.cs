@@ -7,20 +7,20 @@ using UnityEngine.Rendering;
 public class PerlinTerrain : MonoBehaviour
 {
     [Header("Tamanho do terreno")]
-    public int width = 100;   // tamanho em X
-    public int depth = 100;   // tamanho em Z
+    public int width = 100;
+    public int depth = 100;
 
     [Header("Configuração do ruído")]
     [Range(0.1f, 100f)]
-    public float noiseScale = 20f;   // escala do ruído (zoom)
+    public float noiseScale = 20f;
 
     [Header("Altura")]
     [Range(0.01f, 10f)]
-    public float heightMultiplier = 5f; // altura máxima do terreno
+    public float heightMultiplier = 5f;
 
     [Header("Seed / Offset")]
-    public int seed = 0;          // para mudar o mapa
-    public Vector2 offset;        // offset manual
+    public int seed = 0;
+    public Vector2 offset;
 
     private MeshFilter meshFilter;
     private MeshCollider meshCollider;
@@ -42,7 +42,6 @@ public class PerlinTerrain : MonoBehaviour
         Mesh mesh = new Mesh();
         mesh.name = "PerlinTerrainMesh";
 
-        // 👇 PERMITE MAIS DE 65.535 ÍNDICES
         mesh.indexFormat = IndexFormat.UInt32;
 
         // --- VÉRTICES ---
@@ -64,7 +63,7 @@ public class PerlinTerrain : MonoBehaviour
                 float sampleX = (x + randomOffset.x) / noiseScale;
                 float sampleZ = (z + randomOffset.y) / noiseScale;
 
-                float noiseValue = Mathf.PerlinNoise(sampleX, sampleZ); // 0..1
+                float noiseValue = Mathf.PerlinNoise(sampleX, sampleZ);
                 float y = noiseValue * heightMultiplier;
 
                 vertices[i] = new Vector3(x, y, z);
@@ -92,7 +91,7 @@ public class PerlinTerrain : MonoBehaviour
                 vert++;
                 tris += 6;
             }
-            vert++; // pula para a próxima linha de vértices
+            vert++;
         }
 
         // --- APLICAR NA MALHA ---
